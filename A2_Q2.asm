@@ -6,7 +6,7 @@
 ori $t0, $0, 1024
 # initialize loop counter
 ori $t1, $0, 200
-# clear r3 (using r3 XOR r3)
+# clear $t3 (using $t3 XOR $t3)
 xor $t3, $t3, $t3
 
 L1:
