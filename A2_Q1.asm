@@ -8,7 +8,8 @@
 addi $t1, $0, 1
 
 # $k0 is edge flag: 0 for rising, 1 for falling
-# assumed to be zero (rising edge) inititially
+# edge flag is in kernel, so is assumed to persist between ISR calls.
+# edge flage assumed to be zero (rising edge) inititially
 # stop timer if falling edge (in L1)
 beq $k0, $t1, L1
 
