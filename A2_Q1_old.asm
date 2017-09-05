@@ -5,7 +5,6 @@
 		.align	2
 	# Set e_flag to 0 (external interrupt) 
 	e_flag: .word	0
-message 1: .asciiz " \n"
 
 main:
 # $t6 = edge flag
