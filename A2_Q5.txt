@@ -1,5 +1,0 @@
-To implement jal
-We perform PC+4 -> R[31]
-PC <- jump address
-
-extend mux signals to 2 bits
