@@ -7,6 +7,22 @@
 # $t1 is 1
 addi $t1, $0, 1
 
+# save content of $a0 for backup
+sw $a0, tmp0
+
+# find the exception number
+# copy Cause Resigter into $a0
+mfc0 $a0, $13
+# mask unwanted bits
+andi $a0, $a0, 007C
+# shift right 2 bits to find exception number
+srl $a0, $a0, 2
+
+# check if exception is external interrupt
+# skip if not external interrupt
+bne $0, $a0, L2
+
+
 # $k0 is edge flag: 0 for rising, 1 for falling
 # edge flag is in kernel, so it should persist between ISR calls.
 # edge flage assumed to be zero (rising edge) inititially
@@ -38,30 +54,12 @@ lw $t7, 0($t1)
 sw $t7, pulse_width($0)
 
 L2:
-# enable further interrupt.
-mfc0 $k1, $12
-ori $k1, $t0, 0x0001
-mtc0 $k1, $12
+# restore $a0 back
+lw $a0, temp0
 
 eret
-
+# assume eret will re-enable future interrupts
 
 		.kdata
 		.align 2
 tmp0:	.word 0
-
---------------
-# save content of $a0 for backup
-sw $a0, tmp0
-
-# find the exception number
-# copy Cause Resigter into $a0
-mfc0 $a0, $13
-# mask unwanted bits
-andi $a0, $a0, 007C
-# shift right 2 bits to find exception number
-srl $a0, $a0, 2
-
-
-
-
