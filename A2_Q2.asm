@@ -40,7 +40,7 @@ How much faster (ARM/MIPS)
 = (MIPS -> Instruction count*CPI*Clock cycle time)/(ARM -> Instruction count*CPI*Clock cycle time)
 = (8*CPI*(1/1.5))/(8*CPI) = 0.67
 
-The ARM CPU perfomance is 0.33 times slower.
+The ARM CPU perfomance is 0.67 times the speed of MIPS'.
 
 (ii)
 How much faster (ARM/MIPS)
@@ -49,4 +49,4 @@ How much faster (ARM/MIPS)
 = (MIPS -> Instruction count*CPI*Clock cycle time)/(ARM -> Instruction count*CPI*Clock cycle time)
 = (3*CPI*(1/1.5))/(1*CPI) = 2
 
-The ARM CPU perfomance is 2 times faster.
+The ARM CPU perfomance is 2 times faster than MIPS'.
