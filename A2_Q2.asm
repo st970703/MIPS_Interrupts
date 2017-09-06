@@ -22,8 +22,7 @@ addi $t1, $t1, -1
 bne $0, $t1, L1
 
 (ii)
-# r1 = r23:0 concatenated with r231:4
-# Assume $t1 and $t2
+# r1 = r2 3:0 concatenated with r2 31:4
 # $t3 and $t4 are temporaty registers
 # shift left by 7 bytes (rotate)
 sll $t3, $t2, 28
@@ -37,6 +36,7 @@ Average instruction execution time = Clock period * Average CPI
 (i)
 How much faster (ARM/MIPS)
 = (ARM CPU performance)/(MIPS CPU Performance)
+= (MIPS Execution Time)/(ARM Execution Time)
 = (MIPS -> Instruction count*CPI*Clock cycle time)/(ARM -> Instruction count*CPI*Clock cycle time)
 = (8*CPI*(1/1.5))/(8*CPI) = 0.67
 
@@ -45,9 +45,8 @@ The ARM CPU perfomance is 0.33 times slower.
 (ii)
 How much faster (ARM/MIPS)
 = (ARM CPU performance)/(MIPS CPU Performance)
+= (MIPS Execution Time)/(ARM Execution Time)
 = (MIPS -> Instruction count*CPI*Clock cycle time)/(ARM -> Instruction count*CPI*Clock cycle time)
 = (3*CPI*(1/1.5))/(1*CPI) = 2
 
 The ARM CPU perfomance is 2 times faster.
-
-
